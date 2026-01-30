@@ -53,7 +53,7 @@ jobs:
         bash scripts/languagelist_updater.sh
       
         cd app_pojavlauncher/src/main/assets/components/jre
-        mv jre8*.tar.xz bin-arm.tar.xz
+        #mv jre8*.tar.xz bin-arm.tar.xz
         tar -cf universal.tar.xz -T /dev/null
         date +%Y%m%d>version
         cd $GITHUB_WORKSPACE
