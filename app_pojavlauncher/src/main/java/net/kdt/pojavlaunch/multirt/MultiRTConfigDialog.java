@@ -33,12 +33,23 @@ public class MultiRTConfigDialog {
         RecyclerView.Adapter adapter = dialogView.getAdapter();
         if(adapter != null)dialogView.getAdapter().notifyDataSetChanged();
     }
-    public static void openRuntimeSelector(Activity ctx, int code) {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+   public static void openRuntimeSelector(Activity ctx, int code) {
+    Intent intent;
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-        String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension("xz");
-        if(mimeType == null) mimeType = "*/*";
-        intent.setType(mimeType);
-        ctx.startActivityForResult(intent,code);
+    } else {
+        intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
     }
+
+    String mimeType = MimeTypeMap.getSingleton()
+            .getMimeTypeFromExtension("xz");
+    if (mimeType == null) mimeType = "*/*";
+
+    intent.setType(mimeType);
+
+    ctx.startActivityForResult(intent, code);
+  }
 }
