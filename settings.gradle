@@ -1,4 +1,10 @@
 rootProject.name='PojavLauncher'
 include ':jre_lwjgl3glfw'
 include ':app_pojavlauncher'
-
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
