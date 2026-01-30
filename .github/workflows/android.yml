@@ -25,27 +25,27 @@ jobs:
       with:
         java-version: 1.8
 
-    - name: Get gl4es
-      uses: dawidd6/action-download-artifact@v2
-      with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          workflow: android.yml
-          path: app_pojavlauncher/src/main/jniLibs
-          workflow_conclusion: success
-          repo: Google61/gl4es-114-extra
-          branch: master
-          name: gl4es-114
+   # - name: Get gl4es
+   #   uses: dawidd6/action-download-artifact@v2
+   #   with:
+   #       github_token: ${{secrets.GITHUB_TOKEN}}
+   #       workflow: android.yml
+   #       path: app_pojavlauncher/src/main/jniLibs
+   #       workflow_conclusion: success
+   #       repo: Google61/gl4es-114-extra
+   #       branch: master
+   #       name: gl4es-114
     
-    - name: Get JRE8
-      uses: dawidd6/action-download-artifact@v2.17.0
-      with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          workflow: build.yml
-          path: app_pojavlauncher/src/main/assets/components/jre
-          repo: Google61/openjdk-build-android
-          workflow_conclusion: success
-          branch: jre8-api19
-          name: jre8-aarch32
+   # - name: Get JRE8
+   #   uses: dawidd6/action-download-artifact@v2.17.0
+   #   with:
+   #       github_token: ${{secrets.GITHUB_TOKEN}}
+   #       workflow: build.yml
+   #       path: app_pojavlauncher/src/main/assets/components/jre
+   #       repo: Google61/openjdk-build-android
+   #       workflow_conclusion: success
+   #       branch: jre8-api19
+   #       name: jre8-aarch32
     
     - name: Build JRE JAR files
       run: |
