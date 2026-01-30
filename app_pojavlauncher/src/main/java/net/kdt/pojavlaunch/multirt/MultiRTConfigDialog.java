@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import net.kdt.pojavlaunch.BaseLauncherActivity;
 import net.kdt.pojavlaunch.R;
+import android.os.Build;
 
 public class MultiRTConfigDialog {
     public static final int MULTIRT_PICK_RUNTIME = 2048;
